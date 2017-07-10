@@ -23,7 +23,7 @@ public class RestartFix extends CordovaPlugin {
             final String intentAction = intent.getAction();
             if (intent.hasCategory(Intent.CATEGORY_LAUNCHER) && intentAction != null && intentAction.equals(Intent.ACTION_MAIN)) {
                 Log.i(TAG, "Starting from Launcher, Action-Main");
-                // cordova.getActivity().finish();
+                cordova.getActivity().finish();
                 return;
             }
         }
