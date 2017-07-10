@@ -1,6 +1,7 @@
 package com.commontime.cordova.restartfix;
 
 import android.content.Intent;
+import android.util.Log;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
@@ -17,10 +18,12 @@ public class RestartFix extends CordovaPlugin {
     @Override
     protected void pluginInitialize() {
         if( !cordova.getActivity().isTaskRoot() ) {
+            Log.i(TAG, "Is not Task Root");
             final Intent intent = cordova.getActivity().getIntent();
             final String intentAction = intent.getAction();
             if (intent.hasCategory(Intent.CATEGORY_LAUNCHER) && intentAction != null && intentAction.equals(Intent.ACTION_MAIN)) {
-                cordova.getActivity().finish();
+                Log.i(TAG, "Starting from Launcher, Action-Main");
+                // cordova.getActivity().finish();
                 return;
             }
         }
