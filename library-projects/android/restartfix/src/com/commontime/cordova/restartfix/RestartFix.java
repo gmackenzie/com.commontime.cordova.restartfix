@@ -16,10 +16,9 @@ public class RestartFix extends CordovaPlugin {
     }
 
     @Override
-    protected void pluginInitialize() {
+    public void onNewIntent(Intent intent) {
         if( !cordova.getActivity().isTaskRoot() ) {
             Log.i(TAG, "Is not Task Root");
-            final Intent intent = cordova.getActivity().getIntent();
             final String intentAction = intent.getAction();
             if (intent.hasCategory(Intent.CATEGORY_LAUNCHER) && intentAction != null && intentAction.equals(Intent.ACTION_MAIN)) {
                 Log.i(TAG, "Starting from Launcher, Action-Main");
