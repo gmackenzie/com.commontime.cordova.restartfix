@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+  id="com.commontime.cordova.restartfix"
+  version="0.0.1">
+
+  <name>No Sleep plugin</name>
+
+  <platform name="android">
+
+    <config-file target="config.xml" parent="/*">
+      <feature name="RestartFix">
+        <param name="android-package" value="com.commontime.cordova.restartfix.RestartFix" />
+        <param name="onload" value="true"/>
+      </feature>
+    </config-file>      
+                 
+    <framework src="gradle/build-extras.gradle" custom="true" type="gradleReference" />
+    <framework src="library-projects/android/restartfix" custom="true" />
+      
+  </platform>
+    
+</plugin>

@@ -1,0 +1,2 @@
+# com.commontime.cordova.restartfix
+
